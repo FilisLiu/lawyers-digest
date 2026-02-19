@@ -1,5 +1,5 @@
 /**
- * Epistemological framework for FT article extraction.
+ * Epistemological framework for commercial news article extraction.
  * Entity types and relations aligned with how top-firm solicitors read commercial news.
  */
 

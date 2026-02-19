@@ -1,9 +1,9 @@
 {
-  "id": "ft-digest",
-  "name": "FT Digest",
+  "id": "lawyers-digest",
+  "name": "Lawyer's Digest",
   "version": "1.0.0",
   "minAppVersion": "0.15.0",
-  "description": "Process FT articles into structured digests and a concept graph (Acts, parties, themes) for commercial awareness.",
+  "description": "Read commercial news like a lawyer. Build structured digests and concept graphs (Acts, parties, themes) with solicitor-style perspectives and trainee tasks.",
   "author": "NexusComm",
   "authorUrl": "",
   "isDesktopOnly": false

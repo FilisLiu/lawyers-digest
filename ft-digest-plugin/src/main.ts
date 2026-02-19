@@ -1,5 +1,5 @@
 import { Notice, Plugin, TFile } from "obsidian";
-import { DEFAULT_SETTINGS, type FTDigestSettings, FTDigestSettingTab } from "./settings";
+import { DEFAULT_SETTINGS, type LawyerDigestSettings, LawyerDigestSettingTab } from "./settings";
 import { ProcessArticleModal } from "./modal";
 import { resolveConcept, conceptNotePath, stubNoteContent, parseConceptNoteName } from "./concepts";
 import { buildDigestMarkdown, buildNarrativeDigestMarkdown, slugify } from "./digest";
@@ -9,16 +9,16 @@ import { ENTITY_KEYS } from "./digest";
 import type { PipelineResult } from "./pipeline";
 import { runLawyerSays, runLawyerReviews } from "./lawyerCommands";
 
-export default class FTDigestPlugin extends Plugin {
-  settings: FTDigestSettings;
+export default class LawyerDigestPlugin extends Plugin {
+  settings: LawyerDigestSettings;
 
   async onload(): Promise<void> {
     await this.loadSettings();
-    this.addSettingTab(new FTDigestSettingTab(this.app, this));
+    this.addSettingTab(new LawyerDigestSettingTab(this.app, this));
 
     this.addCommand({
-      id: "process-ft-article",
-      name: "Process FT article",
+      id: "process-article",
+      name: "Process article",
       callback: () => {
         new ProcessArticleModal(this.app, this).open();
       },
@@ -33,14 +33,6 @@ export default class FTDigestPlugin extends Plugin {
         if (checking) return true;
         this.refreshLinksForNote(file.path);
         return true;
-      },
-    });
-
-    this.addCommand({
-      id: "ft-sync",
-      name: "FT Sync (fetch new articles)",
-      callback: () => {
-        this.ftSync();
       },
     });
 
@@ -72,13 +64,12 @@ export default class FTDigestPlugin extends Plugin {
   onunload(): void {}
 
   async loadSettings(): Promise<void> {
-    const data = (await this.loadData()) as Partial<FTDigestSettings> | null;
+    const data = (await this.loadData()) as Partial<LawyerDigestSettings> | null;
     this.settings = { ...DEFAULT_SETTINGS, ...data };
     if (!this.settings.baseFolder && this.settings.digestFolder === "Digests") {
-      this.settings.baseFolder = "ft-digest";
-      this.settings.digestFolder = "ft-digest/Digests";
-      this.settings.conceptFolder = "ft-digest/Concepts";
-      this.settings.ftSyncFolder = "ft-digest/Digests";
+      this.settings.baseFolder = "legal-digest";
+      this.settings.digestFolder = "legal-digest/Digests";
+      this.settings.conceptFolder = "legal-digest/Concepts";
     }
   }
 
@@ -94,7 +85,7 @@ export default class FTDigestPlugin extends Plugin {
     const createStubs = this.settings.createStubs;
 
     const slug = slugify(result.extraction.headline, result.extraction.publishedDate);
-    const digestFileName = `FT - ${slug}.md`;
+    const digestFileName = `Article - ${slug}.md`;
     const digestPath = existingDigestPath ?? (digestFolder ? `${digestFolder}/${digestFileName}` : digestFileName);
 
     for (const fullName of result.conceptNoteNames) {
@@ -144,7 +135,7 @@ export default class FTDigestPlugin extends Plugin {
     const createStubs = this.settings.createStubs;
 
     const slug = slugify(extraction.headline, extraction.publishedDate);
-    const digestFileName = `FT - ${slug}.md`;
+    const digestFileName = `Article - ${slug}.md`;
     const digestPath = existingDigestPath ?? (digestFolder ? `${digestFolder}/${digestFileName}` : digestFileName);
 
     const entities = extraction.entities;
@@ -189,11 +180,11 @@ export default class FTDigestPlugin extends Plugin {
     const content = await this.app.vault.read(file);
     const textForExtraction = this.getArticleTextFromDigest(content);
     if (!textForExtraction.trim()) {
-      new Notice("No summary/key points found to re-extract. Paste full article in Process FT article.");
+      new Notice("No summary/key points found to re-extract. Paste full article and use Process article.");
       return;
     }
     if (!this.settings.llmApiKey?.trim()) {
-      new Notice("Set LLM API key in Settings → FT Digest.");
+      new Notice("Set LLM API key in Settings → Lawyer's Digest.");
       return;
     }
     const existingUrl = this.getUrlFromFrontmatter(content);
@@ -235,25 +226,9 @@ export default class FTDigestPlugin extends Plugin {
     return withoutTitle;
   }
 
-  async ftSync(): Promise<void> {
-    if (!this.settings.ftApiKey?.trim()) {
-      new Notice("FT API key not set. Add it in Settings → FT Digest.");
-      return;
-    }
-    const { fetchAndProcessFTArticles } = await import("./ftApi");
-    try {
-      new Notice("FT Sync started…");
-      const count = await fetchAndProcessFTArticles(this.app, this);
-      new Notice(`FT Sync: processed ${count} new article(s).`);
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      new Notice(`FT Sync failed: ${msg}`);
-    }
-  }
-
   private async runLawyerSays(file: TFile): Promise<void> {
     if (!this.settings.llmApiKey?.trim()) {
-      new Notice("Set LLM API key in Settings → FT Digest.");
+      new Notice("Set LLM API key in Settings → Lawyer's Digest.");
       return;
     }
     const content = await this.app.vault.read(file);
@@ -280,7 +255,7 @@ export default class FTDigestPlugin extends Plugin {
 
   private async runLawyerReviews(file: TFile): Promise<void> {
     if (!this.settings.llmApiKey?.trim()) {
-      new Notice("Set LLM API key in Settings → FT Digest.");
+      new Notice("Set LLM API key in Settings → Lawyer's Digest.");
       return;
     }
     let content = await this.app.vault.read(file);

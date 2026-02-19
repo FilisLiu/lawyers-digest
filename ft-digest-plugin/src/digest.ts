@@ -65,7 +65,6 @@ export function buildDigestMarkdown(extraction: ArticleExtraction, sourceUrl?: s
   const date = extraction.publishedDate ?? new Date().toISOString().slice(0, 10);
   lines.push("---");
   lines.push("type: article");
-  lines.push("source: FT");
   lines.push(`date: ${date}`);
   if (sourceUrl) lines.push(`url: ${sourceUrl}`);
   lines.push("---");
@@ -106,7 +105,6 @@ export function buildNarrativeDigestMarkdown(
   const lines: string[] = [];
   lines.push("---");
   lines.push("type: article");
-  lines.push("source: FT");
   lines.push(`date: ${date}`);
   if (sourceUrl) lines.push(`url: ${sourceUrl}`);
   lines.push("---");

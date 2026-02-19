@@ -1,11 +1,11 @@
 import { App, Modal, Notice } from "obsidian";
-import type FTDigestPlugin from "./main";
+import type LawyerDigestPlugin from "./main";
 import { runDigestPipeline } from "./pipeline";
 
 export class ProcessArticleModal extends Modal {
   constructor(
     app: App,
-    private plugin: FTDigestPlugin
+    private plugin: LawyerDigestPlugin
   ) {
     super(app);
   }
@@ -13,24 +13,24 @@ export class ProcessArticleModal extends Modal {
   onOpen(): void {
     const { contentEl } = this;
     contentEl.empty();
-    contentEl.createEl("h2", { text: "Process FT article" });
-    const desc = contentEl.createEl("p", { cls: "ft-digest-modal-desc" });
-    desc.setText("Paste article URL or full text below. Extraction uses the configured LLM.");
-    const modeContainer = contentEl.createDiv({ cls: "ft-digest-modal-mode" });
+    contentEl.createEl("h2", { text: "Process article" });
+    const desc = contentEl.createEl("p", { cls: "lawyers-digest-modal-desc" });
+    desc.setText("Paste article URL or full text below. The plugin will extract concepts and create a structured digest.");
+    const modeContainer = contentEl.createDiv({ cls: "lawyers-digest-modal-mode" });
     const labelMode = modeContainer.createEl("label");
     labelMode.setText("Input: ");
     const select = modeContainer.createEl("select");
-    select.addClass("ft-digest-select");
+    select.addClass("lawyers-digest-select");
     const optPaste = select.createEl("option", { value: "paste" });
     optPaste.setText("Paste text");
     const optUrl = select.createEl("option", { value: "url" });
     optUrl.setText("URL (fetch then extract)");
-    const inputContainer = contentEl.createDiv({ cls: "ft-digest-modal-input" });
-    const ta = contentEl.createEl("textarea", { cls: "ft-digest-textarea" });
-    ta.placeholder = "Paste article text or FT article URL…";
+    const inputContainer = contentEl.createDiv({ cls: "lawyers-digest-modal-input" });
+    const ta = contentEl.createEl("textarea", { cls: "lawyers-digest-textarea" });
+    ta.placeholder = "Paste article text or article URL…";
     ta.setAttr("rows", "12");
     inputContainer.appendChild(ta);
-    const btnRow = contentEl.createDiv({ cls: "ft-digest-modal-buttons" });
+    const btnRow = contentEl.createDiv({ cls: "lawyers-digest-modal-buttons" });
     const submit = btnRow.createEl("button", { cls: "mod-cta" });
     submit.setText("Process");
     const cancel = btnRow.createEl("button");
@@ -39,7 +39,7 @@ export class ProcessArticleModal extends Modal {
     let isUrl = false;
     select.onchange = () => {
       isUrl = select.value === "url";
-      ta.placeholder = isUrl ? "https://www.ft.com/content/…" : "Paste article text…";
+      ta.placeholder = isUrl ? "https://example.com/article/…" : "Paste article text…";
     };
 
     submit.onclick = async () => {
@@ -49,7 +49,7 @@ export class ProcessArticleModal extends Modal {
         return;
       }
       if (!this.plugin.settings.llmApiKey?.trim()) {
-        new Notice("Set LLM API key in Settings → FT Digest.");
+        new Notice("Set LLM API key in Settings → Lawyer's Digest.");
         return;
       }
       submit.setAttribute("disabled", "true");
@@ -100,7 +100,7 @@ export class ProcessArticleModal extends Modal {
         const msg = e instanceof Error ? e.message : String(e);
         const errorMsg = msg.length > 100 ? msg.slice(0, 100) + "..." : msg;
         new Notice(`Error: ${errorMsg}`);
-        console.error("FT Digest plugin error:", e);
+        console.error("Lawyer's Digest plugin error:", e);
       }
       submit.removeAttribute("disabled");
       submit.setText("Process");
@@ -127,7 +127,7 @@ export class ProcessArticleModal extends Modal {
     }
     try {
       const res = await fetch(url, {
-        headers: { "User-Agent": "Obsidian-FT-Digest/1.0" },
+        headers: { "User-Agent": "Obsidian-Lawyers-Digest/1.0" },
         // Add timeout (browser fetch doesn't support timeout directly, but this helps)
         signal: AbortSignal.timeout(30000), // 30 second timeout
       });

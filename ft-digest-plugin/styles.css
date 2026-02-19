@@ -1,25 +1,25 @@
-.ft-digest-modal-desc {
+.lawyers-digest-modal-desc {
   color: var(--text-muted);
   font-size: 0.9em;
 }
 
-.ft-digest-modal-mode {
+.lawyers-digest-modal-mode {
   margin-bottom: 0.5em;
 }
 
-.ft-digest-modal-mode label {
+.lawyers-digest-modal-mode label {
   margin-right: 0.5em;
 }
 
-.ft-digest-select {
+.lawyers-digest-select {
   padding: 0.25em 0.5em;
 }
 
-.ft-digest-modal-input {
+.lawyers-digest-modal-input {
   margin: 0.5em 0;
 }
 
-.ft-digest-textarea {
+.lawyers-digest-textarea {
   width: 100%;
   min-height: 200px;
   padding: 0.75em;
@@ -27,12 +27,12 @@
   resize: vertical;
 }
 
-.ft-digest-modal-buttons {
+.lawyers-digest-modal-buttons {
   margin-top: 1em;
   display: flex;
   gap: 0.5em;
 }
 
-.ft-digest-modal-buttons button {
+.lawyers-digest-modal-buttons button {
   padding: 0.4em 1em;
 }

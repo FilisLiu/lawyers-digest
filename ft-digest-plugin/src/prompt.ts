@@ -16,14 +16,14 @@ Entity types to extract (use short, canonical labels):
 - issues: The concrete legal/business question (e.g. "Will the merger be cleared?", "Application of FSR to deal")
 `;
 
-export const EXTRACTION_SYSTEM_PROMPT = `You are an expert analyst helping a commercial lawyer build a knowledge graph from Financial Times articles. Extract structured information so each article can be linked to shared concepts (Acts, parties, themes, etc.) across many articles.
+export const EXTRACTION_SYSTEM_PROMPT = `You are an expert analyst helping a commercial lawyer build a knowledge graph from commercial news articles. Extract structured information so each article can be linked to shared concepts (Acts, parties, themes, etc.) across many articles.
 
 ${ONTOLOGY_DESCRIPTION}
 
 Always respond with valid JSON only, no markdown or explanation. Use the exact structure: headline (string), summary (string, 2-3 sentences), keyPoints (array of strings), publishedDate (string or null), entities (object with arrays: sectors, jurisdictions, acts, authorities, parties, themes, issues). Use empty arrays for any category with nothing relevant.`;
 
 export function buildExtractionUserPrompt(articleText: string): string {
-  return `Extract from this FT (or similar commercial news) article:
+  return `Extract from this commercial news article:
 
 ---
 ${articleText}
@@ -80,7 +80,7 @@ Respond with JSON only: a single object mapping each exact "Type - Name" string 
 Use the exact concept strings as keys. No markdown, no code fence.`;
 
 /** Lawyer says: up to 3 perspectives (one sentence each) + sub-bullets (acts, cases, past events); + one lightweight trainee task. */
-export const LAWYER_SAYS_SYSTEM_PROMPT = `You are a senior commercial solicitor at a magic-circle firm. The user has pasted a news article (e.g. from the FT) into a note. Your job is to:
+export const LAWYER_SAYS_SYSTEM_PROMPT = `You are a senior commercial solicitor at a magic-circle firm. The user has pasted a commercial news article into a note. Your job is to:
 
 1) **Lawyer's perspective** (no more than three points total): Give 1–3 short "what a lawyer is thinking while reading" points. Each point is ONE sentence. Examples: a potential legal caveat, implication for the legal/regulatory landscape, client risk, or deal consideration. For each point, if relevant, add 1–3 sub-bullets with concrete detail: name a specific Act, case, or past event (e.g. "Similar to [Case X] which held …" or "[Act Y] may apply" or "Compare [Event Z] where the company …"). Be specific—real legislation and case names where you know them.
 
