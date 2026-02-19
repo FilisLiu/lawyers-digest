@@ -1,8 +1,10 @@
 # Lawyer's Digest – Obsidian Plugin
 
-**Read FT like a lawyer. **Process articles into structured digests and a concept graph (Acts, parties, themes, sectors, jurisdictions). Build **commercial awareness** with solicitor-style perspectives, trainee tasks, and feedback.
+**Read FT like a lawyer!**
 
-Perfect for law students, trainees, and anyone looking to develop commercial legal awareness by analyzing news articles through a legal lens.
+Process articles into structured digests and a concept graph (Acts, parties, themes, sectors, jurisdictions). Build **commercial awareness** with solicitor-style perspectives, trainee tasks, and feedback.
+
+Perfect for **law students, trainees**, and anyone looking to develop commercial legal awareness by analyzing news articles through a legal lens.
 
 ## Features
 
