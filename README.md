@@ -10,9 +10,12 @@ Perfect for **law students, trainees**, and anyone looking to develop commercial
 
 **Note-first workflow (create note, paste article, then run commands):**
 - **Lawyer says**: Reads the note and adds (1) up to three lawyer's perspectives with sub-bullets; specific events/cases/mergers become links in the form `[[Merger-Standard Life & Aberdeen 2020]]`, `[[Case-Uber v Aslam 2021]]`, etc. (2) A **References** section with context and source for each link. The plugin creates a stub note for each reference (under `legal-digest/Concepts/References/`) with a short summary and source. (3) One trainee task and a "Your answer" callout.
+
 <img width="1512" height="982" alt="Screenshot 2026-02-19 at 16 58 43" src="https://github.com/user-attachments/assets/727c584d-6486-4f27-877f-b89670d7e584" />
 
+
 - **Lawyer reviews** (two-step, to avoid bias): First, a "key points to cover" (and optional model answer) is generated from the task and article only. Then your answer is reviewed against that: you get **Key issues** (succinct bullets in a danger-style callout) and a **Revised version** (your text with ~~strikethrough~~ for removed bits and **bold** for suggested additions).
+
 <img width="1512" height="982" alt="Screenshot 2026-02-19 at 16 58 48" src="https://github.com/user-attachments/assets/684a23ef-54c7-4764-b30b-1f2bdc567872" />
 
 **Digest pipeline (concept linking):**
