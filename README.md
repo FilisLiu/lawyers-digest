@@ -9,7 +9,10 @@ Perfect for **law students, trainees**, and anyone looking to develop commercial
 ## Features
 
 **Note-first workflow (create note, paste article, then run commands):**
-- **Lawyer says**: Reads the note and adds (1) up to three lawyer's perspectives with sub-bullets; specific events/cases/mergers become links in the form `[[Merger-Standard Life & Aberdeen 2020]]`, `[[Case-Uber v Aslam 2021]]`, etc. (2) A **References** section with context and source for each link. The plugin creates a stub note for each reference (under `legal-digest/Concepts/References/`) with a short summary and source. (3) One trainee task and a "Your answer" callout.
+- **Lawyer says**: Reads the note and adds
+(1) up to three lawyer's perspectives with sub-bullets; specific events/cases/mergers become links in the form `[[Merger-Standard Life & Aberdeen 2020]]`, `[[Case-Uber v Aslam 2021]]`, etc.
+(2) A **References** section with context and source for each link. The plugin creates a stub note for each reference (under `legal-digest/Concepts/References/`) with a short summary and source.
+(3) One trainee task and a "Your answer" callout.
 
 <img width="1512" height="982" alt="Screenshot 2026-02-19 at 16 58 43" src="https://github.com/user-attachments/assets/727c584d-6486-4f27-877f-b89670d7e584" />
 
