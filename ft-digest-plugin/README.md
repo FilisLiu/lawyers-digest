@@ -57,5 +57,16 @@ You can edit stubs to add more (e.g. **Case** notes could later be enriched with
 
 - `npm run dev` – watch build
 - `npm run build` – production build
+- `npm test` – run test suite
+- `npm run test:watch` – run tests in watch mode
+- `npm run test:coverage` – generate coverage report
 
 Requires Node 18+ and npm.
+
+## Testing
+
+The project includes a comprehensive test suite using Vitest. See [TESTING.md](./TESTING.md) for details.
+
+- **100 tests** covering core functionality, security, and edge cases
+- Tests run automatically on CI/CD
+- Coverage reports available via `npm run test:coverage`

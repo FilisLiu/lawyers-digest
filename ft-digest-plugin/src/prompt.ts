@@ -133,7 +133,7 @@ export function parseConceptDescriptionsResponse(text: string): Record<string, s
   const raw = text.trim().replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/i, "").trim();
   try {
     const parsed = JSON.parse(raw) as unknown;
-    if (!parsed || typeof parsed !== "object") return null;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return null;
     const out: Record<string, string> = {};
     for (const [key, val] of Object.entries(parsed)) {
       if (typeof key === "string" && typeof val === "string" && val.trim()) out[key] = val.trim();
@@ -161,10 +161,10 @@ export function parseExtractionResponse(text: string): ArticleExtraction | null 
       issues: arrayOfStrings(e?.issues),
     };
     return {
-      headline: String((parsed as Record<string, unknown>).headline ?? ""),
-      summary: String((parsed as Record<string, unknown>).summary ?? ""),
+      headline: String((parsed as Record<string, unknown>).headline ?? "").trim(),
+      summary: String((parsed as Record<string, unknown>).summary ?? "").trim(),
       keyPoints: arrayOfStrings((parsed as Record<string, unknown>).keyPoints),
-      publishedDate: (parsed as Record<string, unknown>).publishedDate != null ? String((parsed as Record<string, unknown>).publishedDate) : undefined,
+      publishedDate: (parsed as Record<string, unknown>).publishedDate != null ? String((parsed as Record<string, unknown>).publishedDate).trim() : undefined,
       entities,
     };
   } catch {

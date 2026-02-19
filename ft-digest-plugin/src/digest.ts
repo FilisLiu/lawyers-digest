@@ -51,9 +51,10 @@ export function conceptLinks(entities: ArticleExtraction["entities"]): string[] 
     if (!Array.isArray(list)) continue;
     const seen = new Set<string>();
     for (const name of list) {
-      if (!name || seen.has(name)) continue;
-      seen.add(name);
-      out.push(wikiLink(type as EntityType, name));
+      const trimmed = String(name).trim();
+      if (!trimmed || seen.has(trimmed)) continue;
+      seen.add(trimmed);
+      out.push(wikiLink(type as EntityType, trimmed));
     }
   }
   return out;

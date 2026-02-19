@@ -25,7 +25,7 @@ export interface PipelineResult {
 }
 
 /** Format entities as "Type - Name" for the narrative prompt. */
-function conceptNoteNamesFromExtraction(extraction: ArticleExtraction): string[] {
+export function conceptNoteNamesFromExtraction(extraction: ArticleExtraction): string[] {
   const out: string[] = [];
   const e = extraction.entities;
   const keys = [

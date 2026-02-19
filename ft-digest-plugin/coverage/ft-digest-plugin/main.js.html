@@ -1,0 +1,583 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for ft-digest-plugin/main.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">ft-digest-plugin</a> main.js</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>0/166</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>0/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">0% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>0/166</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line low'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >/*<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cstat-no" title="statement not covered" >THIS IS A GENERATED/BUNDLED FILE BY ESBUILD</span>
+<span class="cstat-no" title="statement not covered" >*/</span>
+<span class="cstat-no" title="statement not covered" >var _=Object.defineProperty;var be=Object.getOwnPropertyDescriptor;var Se=Object.getOwnPropertyNames;var xe=Object.prototype.hasOwnProperty;var C=(o,t)=&gt;()=&gt;(o&amp;&amp;(t=o(o=0)),t);var Q=(o,t)=&gt;{for(var e in t)_(o,e,{get:t[e],enumerable:!0})},Ae=(o,t,e,n)=&gt;{if(t&amp;&amp;typeof t=="object"||typeof t=="function")for(let s of Se(t))!xe.call(o,s)&amp;&amp;s!==e&amp;&amp;_(o,s,{get:()=&gt;t[s],enumerable:!(n=be(t,s))||n.enumerable});return o};var Te=o=&gt;Ae(_({},"__esModule",{value:!0}),o);function $(o,t){return`${R[o]} - ${t.trim()}`}var F,R,N=C(()=&gt;{F=["sector","jurisdiction","act","authority","party","theme","issue"],R={sector:"Sector",jurisdiction:"Jurisdiction",act:"Act",authority:"Authority",party:"Party",theme:"Theme",issue:"Issue"}});function j(o){return`Extract from this commercial news article:</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" >${o}</span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Respond with a single JSON object: { "headline": "...", "summary": "...", "keyPoints": ["...", "..."], "publishedDate": "YYYY-MM-DD or null", "entities": { "sectors": [], "jurisdictions": [], "acts": [], "authorities": [], "parties": [], "themes": [], "issues": [] } }`}function ae(o){let t=o.trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();try{let e=JSON.parse(t);if(!e||typeof e!="object")return null;let n={};for(let[s,i]of Object.entries(e))typeof s=="string"&amp;&amp;typeof i=="string"&amp;&amp;i.trim()&amp;&amp;(n[s]=i.trim());return n}catch(e){return null}}function K(o){var n,s;let e=o.trim().replace(/^```(?:json)?\s*/i,"").replace(/\s*```$/i,"").trim();try{let i=JSON.parse(e);if(!i||typeof i!="object"||!("headline"in i)||!("entities"in i))return null;let r=i.entities,l={sectors:k(r==null?void 0:r.sectors),jurisdictions:k(r==null?void 0:r.jurisdictions),acts:k(r==null?void 0:r.acts),authorities:k(r==null?void 0:r.authorities),parties:k(r==null?void 0:r.parties),themes:k(r==null?void 0:r.themes),issues:k(r==null?void 0:r.issues)};return{headline:String((n=i.headline)!=null?n:""),summary:String((s=i.summary)!=null?s:""),keyPoints:k(i.keyPoints),publishedDate:i.publishedDate!=null?String(i.publishedDate):void 0,entities:l}}catch(i){return null}}function k(o){return Array.isArray(o)?o.filter(t=&gt;typeof t=="string"&amp;&amp;t.trim().length&gt;0).map(t=&gt;t.trim()):[]}var Ee,Y,te,se,ie,ne,re,oe,O=C(()=&gt;{Ee=`</span>
+<span class="cstat-no" title="statement not covered" >Entity types to extract (use short, canonical labels):</span>
+<span class="cstat-no" title="statement not covered" >- sectors: Industry or market (e.g. Financial services, Energy, Tech)</span>
+<span class="cstat-no" title="statement not covered" >- jurisdictions: Legal system / geography (e.g. UK, EU, US, England &amp; Wales)</span>
+<span class="cstat-no" title="statement not covered" >- acts: Legislation or regulatory instrument (e.g. Companies Act 2006, UK Listing Rules, FSR)</span>
+<span class="cstat-no" title="statement not covered" >- authorities: Regulator or public body (e.g. FCA, CMA, European Commission)</span>
+<span class="cstat-no" title="statement not covered" >- parties: Company, person, or organisation (e.g. Linklaters, BP, HM Treasury)</span>
+<span class="cstat-no" title="statement not covered" >- themes: Recurring commercial/legal concept (e.g. FDI screening, net zero, antitrust, listing reform)</span>
+<span class="cstat-no" title="statement not covered" >- issues: The concrete legal/business question (e.g. "Will the merger be cleared?", "Application of FSR to deal")</span>
+<span class="cstat-no" title="statement not covered" >`,Y=`You are an expert analyst helping a commercial lawyer build a knowledge graph from commercial news articles. Extract structured information so each article can be linked to shared concepts (Acts, parties, themes, etc.) across many articles.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >${Ee}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Always respond with valid JSON only, no markdown or explanation. Use the exact structure: headline (string), summary (string, 2-3 sentences), keyPoints (array of strings), publishedDate (string or null), entities (object with arrays: sectors, jurisdictions, acts, authorities, parties, themes, issues). Use empty arrays for any category with nothing relevant.`;te=`You are a senior commercial solicitor at a magic-circle firm. A trainee has sent you this article and a short extraction.</span>
+<span class="cstat-no" title="statement not covered" >Your job: add solicitor-level interpretation in 1\u20132 short paragraphs. Cover:</span>
+<span class="cstat-no" title="statement not covered" >1) What are the real legal/commercial implications? What should a trainee watch for?</span>
+<span class="cstat-no" title="statement not covered" >2) Similar cases, precedents, or legislation that come to mind (name them specifically).</span>
+<span class="cstat-no" title="statement not covered" >3) How this might affect clients or deals in this space.</span>
+<span class="cstat-no" title="statement not covered" >Be concise and practical. Write in clear prose, no bullet points. Do not repeat the summary.`,se=`You write narrative digests for a PGDL student building commercial awareness. You will receive:</span>
+<span class="cstat-no" title="statement not covered" >- Headline and summary</span>
+<span class="cstat-no" title="statement not covered" >- Solicitor insight (implications, similar cases, what to watch)</span>
+<span class="cstat-no" title="statement not covered" >- A list of concepts in the form "Type - Name" (e.g. "Act - Companies Act 2006", "Party - Deliveroo", "Theme - FDI screening").</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Your task: Write ONE coherent narrative (2\u20134 paragraphs) that:</span>
+<span class="cstat-no" title="statement not covered" >1) Opens with what happened (headline/summary in one sentence).</span>
+<span class="cstat-no" title="statement not covered" >2) Weaves in the solicitor insight: implications, similar cases/legislation, and what to watch.</span>
+<span class="cstat-no" title="statement not covered" >3) Embeds every concept as an Obsidian wiki link. Use the EXACT string from the concepts list for each link\u2014e.g. if the list says "Act - Companies Act 2006" then write [[Act - Companies Act 2006]] (singular "Act", not "Acts"). Same for Party not Parties, Theme not Themes, etc.</span>
+<span class="cstat-no" title="statement not covered" >4) Reads like a single, well-digested note\u2014not bullet points or separate sections.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Output only the narrative text, no headings or "Narrative:" prefix.`,ie=`You write short descriptions for concept notes in a commercial-law knowledge graph. You will receive an article summary, solicitor insight, and a list of concepts in the form "Type - Name" (e.g. "Party - Stellantis", "Theme - EV market").</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >For each concept, write 1\u20133 sentences suitable for the "Summary" section of that concept note. Be type-specific:</span>
+<span class="cstat-no" title="statement not covered" >- Party: Who they are (company/person/org), sector if known, and their relevance in this article.</span>
+<span class="cstat-no" title="statement not covered" >- Act: What the legislation or regulation does, jurisdiction, and relevance in this context.</span>
+<span class="cstat-no" title="statement not covered" >- Authority: Who they are, what they regulate, and jurisdiction.</span>
+<span class="cstat-no" title="statement not covered" >- Issue: The legal or business question in plain language; why it matters.</span>
+<span class="cstat-no" title="statement not covered" >- Theme: Short definition of the concept; why commercial lawyers care.</span>
+<span class="cstat-no" title="statement not covered" >- Sector: One sentence defining the industry or market.</span>
+<span class="cstat-no" title="statement not covered" >- Jurisdiction: One sentence (legal system / geography).</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Respond with JSON only: a single object mapping each exact "Type - Name" string to its description string. Example: { "Party - Stellantis": "Multinational automaker formed by merger of Fiat Chrysler and PSA. In this article: writedowns and pivot from EV targets.", "Theme - EV market": "Electric vehicle market; regulatory and demand shifts affecting carmakers and supply chains." }</span>
+<span class="cstat-no" title="statement not covered" >Use the exact concept strings as keys. No markdown, no code fence.`,ne=`You are a senior commercial solicitor at a magic-circle firm. The user has pasted a commercial news article into a note. Your job is to:</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >1) **Lawyer's perspective** (no more than three points total): Give 1\u20133 short "what a lawyer is thinking while reading" points. Each point is ONE sentence. Examples: a potential legal caveat, implication for the legal/regulatory landscape, client risk, or deal consideration. For each point, if relevant, add 1\u20133 sub-bullets with concrete detail: name a specific Act, case, or past event (e.g. "Similar to [Case X] which held \u2026" or "[Act Y] may apply" or "Compare [Event Z] where the company \u2026"). Be specific\u2014real legislation and case names where you know them.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >2) **Trainee task**: Propose ONE lightweight task a supervising lawyer might ask a trainee to do after reading this article. Examples: "Draft a short email to the partner summarising the legal risk and one action point"; "Research [specific point] and summarise in 3 bullet points"; "Answer: what would you advise the client to do by Friday?" Keep it realistic (coordination, drafting, or legal research) and short\u2014something the user can do in a few minutes to test they've grasped the essence.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Output format (use exactly these headings in your response):</span>
+<span class="cstat-no" title="statement not covered" >## Lawyer's perspective</span>
+<span class="cstat-no" title="statement not covered" >- [First point in one sentence.]</span>
+<span class="cstat-no" title="statement not covered" >  - [Sub-bullet: act/case/event if relevant]</span>
+<span class="cstat-no" title="statement not covered" >- [Second point if relevant.]</span>
+<span class="cstat-no" title="statement not covered" >  - [Sub-bullet if relevant]</span>
+<span class="cstat-no" title="statement not covered" >- [Third point if relevant.]</span>
+<span class="cstat-no" title="statement not covered" >  - [Sub-bullet if relevant]</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >## Trainee task</span>
+<span class="cstat-no" title="statement not covered" >[One short paragraph describing the task. End with a clear instruction, e.g. "Draft \u2026" or "Research \u2026 and summarise \u2026" or "Answer: \u2026"]`,re=`You are a supervising lawyer. The trainee will be given a task based on a commercial news article. Before seeing their answer, you produce the criteria for a good response.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Given the task and the article context below, output:</span>
+<span class="cstat-no" title="statement not covered" >1) **Key points to cover**: 3\u20135 bullet points that a good answer must include (e.g. "Identify the main legal risk", "Name the relevant regulation", "One concrete next step").</span>
+<span class="cstat-no" title="statement not covered" >2) **Model answer** (optional): A short paragraph or bullet list showing what a solid answer looks like. Keep it concise\u2014this is for comparison only.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Use exactly these headings in your response:</span>
+<span class="cstat-no" title="statement not covered" >## Key points to cover</span>
+<span class="cstat-no" title="statement not covered" >- [Point 1]</span>
+<span class="cstat-no" title="statement not covered" >- [Point 2]</span>
+<span class="cstat-no" title="statement not covered" >...</span>
+<span class="cstat-no" title="statement not covered" >## Model answer</span>
+<span class="cstat-no" title="statement not covered" >[Short paragraph or bullets.]`,oe=`You are a supervising lawyer giving feedback on a trainee's submitted answer. You have already been given the "key points to cover" and optionally a "model answer". You have NOT seen those when writing the key points\u2014they were generated separately.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Your job:</span>
+<span class="cstat-no" title="statement not covered" >1) **Key issues**: List 3\u20135 succinct bullet points of what is wrong or missing: factual errors, missed key points, unclear wording, or formatting/quality issues. Be direct and specific. Do not praise here\u2014save that for the revised version intro if needed.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >2) **Revised version**: Rewrite the trainee's answer so it would be acceptable to a partner. In your rewrite, use Markdown: wrap any text you are **removing** in ~~double tildes~~ (strikethrough) and any text you are **adding or replacing** in **double asterisks** (bold). So the output is one coherent paragraph (or short bullets) that mixes their words (struck through when wrong) and your edits (bold). If their sentence is fine, leave it without ~~ or **. If you replace a phrase, strike through the original and bold your replacement.</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Output format (use exactly these headings):</span>
+<span class="cstat-no" title="statement not covered" >## Key issues</span>
+<span class="cstat-no" title="statement not covered" >- [Issue 1]</span>
+<span class="cstat-no" title="statement not covered" >- [Issue 2]</span>
+<span class="cstat-no" title="statement not covered" >...</span>
+<span class="cstat-no" title="statement not covered" >## Revised version</span>
+<span class="cstat-no" title="statement not covered" >[One paragraph or short bullets with ~~removed~~ and **added** as described.]`});async function L(o,t,e){return(e.provider||"openai")==="gemini"?ke(o,t,e):Pe(o,t,e)}async function Pe(o,t,e){var l,p,a;let n=e.apiUrl||ce,s=await fetch(n,{method:"POST",headers:{"Content-Type":"application/json",...e.apiKey?{Authorization:`Bearer ${e.apiKey}`}:{}},body:JSON.stringify({model:e.model||"gpt-4o-mini",messages:[{role:"system",content:o},{role:"user",content:t}],temperature:.3,max_tokens:2e3})});if(!s.ok)throw new Error(`LLM API error ${s.status}: ${await s.text().then(c=&gt;c.slice(0,200))}`);let i=await s.json(),r=(a=(p=(l=i==null?void 0:i.choices)==null?void 0:l[0])==null?void 0:p.message)==null?void 0:a.content;if(!r)throw new Error("LLM returned no content");return r}async function ke(o,t,e){var m,u,v,h,g,f,y;let n=e.model||"gemini-2.0-flash",s=e.apiKey||"",i=((m=e.apiUrl)==null?void 0:m.trim())&amp;&amp;e.apiUrl.includes("generativelanguage"),r=i&amp;&amp;e.apiUrl?e.apiUrl:`${le}/${n}:generateContent?key=${encodeURIComponent(s)}`,l={"Content-Type":"application/json"};i&amp;&amp;s&amp;&amp;(l["x-goog-api-key"]=s);let p=await fetch(r,{method:"POST",headers:l,body:JSON.stringify({systemInstruction:{parts:[{text:o}]},contents:[{parts:[{text:t}]}],generationConfig:{temperature:.3,maxOutputTokens:2e3}})});if(!p.ok)throw new Error(`Gemini API error ${p.status}: ${await p.text().then(d=&gt;d.slice(0,200))}`);let a=await p.json();if((u=a.error)!=null&amp;&amp;u.message)throw new Error(`Gemini: ${a.error.message}`);let c=(y=(f=(g=(h=(v=a.candidates)==null?void 0:v[0])==null?void 0:h.content)==null?void 0:g.parts)==null?void 0:f[0])==null?void 0:y.text;if(!c)throw new Error("Gemini returned no content");return c}async function pe(o,t){return(t.provider||"openai")==="gemini"?Re(o,t):Le(o,t)}async function Le(o,t){var p,a,c;let e=t.apiUrl||ce,n={model:t.model||"gpt-4o-mini",messages:[{role:"system",content:Y},{role:"user",content:j(o)}],temperature:.2,max_tokens:2e3},s={"Content-Type":"application/json"};t.apiKey&amp;&amp;(s.Authorization=`Bearer ${t.apiKey}`);let i=await fetch(e,{method:"POST",headers:s,body:JSON.stringify(n)});if(!i.ok){let m=await i.text();throw new Error(`LLM API error ${i.status}: ${m.slice(0,200)}`)}let r=await i.json(),l=(c=(a=(p=r==null?void 0:r.choices)==null?void 0:p[0])==null?void 0:a.message)==null?void 0:c.content;if(!l)throw new Error("LLM returned no content");return K(l)}async function Re(o,t){var m,u,v,h,g,f,y;let e=t.model||"gemini-2.0-flash",n=t.apiKey||"",s=((m=t.apiUrl)==null?void 0:m.trim())&amp;&amp;t.apiUrl.includes("generativelanguage"),i=s&amp;&amp;t.apiUrl?t.apiUrl:`${le}/${e}:generateContent?key=${encodeURIComponent(n)}`,r={"Content-Type":"application/json"};s&amp;&amp;n&amp;&amp;(r["x-goog-api-key"]=n);let l={systemInstruction:{parts:[{text:Y}]},contents:[{parts:[{text:j(o)}]}],generationConfig:{temperature:.2,maxOutputTokens:2e3}},p=await fetch(i,{method:"POST",headers:r,body:JSON.stringify(l)});if(!p.ok){let d=await p.text();throw new Error(`Gemini API error ${p.status}: ${d.slice(0,200)}`)}let a=await p.json();if((u=a.error)!=null&amp;&amp;u.message)throw new Error(`Gemini: ${a.error.message}`);let c=(y=(f=(g=(h=(v=a.candidates)==null?void 0:v[0])==null?void 0:h.content)==null?void 0:g.parts)==null?void 0:f[0])==null?void 0:y.text;if(!c)throw new Error("Gemini returned no content");return K(c)}var ce,le,W=C(()=&gt;{O();ce="https://api.openai.com/v1/chat/completions",le="https://generativelanguage.googleapis.com/v1beta/models"});var ue={};Q(ue,{runDigestPipeline:()=&gt;B});function Ne(o){let t=[],e=o.entities,n=["sectors","jurisdictions","acts","authorities","parties","themes","issues"],s={sectors:"sector",jurisdictions:"jurisdiction",acts:"act",authorities:"authority",parties:"party",themes:"theme",issues:"issue"};for(let i of n){let r=e[i];if(!Array.isArray(r))continue;let l=s[i],p=R[l];for(let a of r){let c=String(a).trim();c&amp;&amp;t.push(`${p} - ${c}`)}}return t}async function B(o,t){var c;let e=await pe(o,t);if(!e)return null;let n=Ne(e),s=await L(te,`Article summary: ${e.summary}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Full text (excerpt):</span>
+<span class="cstat-no" title="statement not covered" >${o.slice(0,6e3)}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Provide solicitor-level interpretation (1\u20132 paragraphs).`,t),i=`Headline: ${e.headline}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Summary: ${e.summary}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Solicitor insight:</span>
+<span class="cstat-no" title="statement not covered" >${s}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Concepts to embed as [[links]] (use these exact strings):</span>
+<span class="cstat-no" title="statement not covered" >${n.join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Write the narrative digest with every concept embedded as [[Type - Name]].`,r=await L(se,i,t),l=`Article summary: ${e.summary}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Solicitor insight:</span>
+<span class="cstat-no" title="statement not covered" >${s}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Concepts (use these exact strings as JSON keys):</span>
+<span class="cstat-no" title="statement not covered" >${n.join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Respond with a single JSON object: each key is one "Type - Name" above, each value is 1\u20133 sentences for that concept's Summary.`,p=await L(ie,l,t),a=(c=ae(p))!=null?c:{};return{extraction:e,insight:s,narrative:r.trim(),conceptNoteNames:n,conceptDescriptions:a}}var G=C(()=&gt;{N();W();O()});var Ie={};Q(Ie,{default:()=&gt;U});module.exports=Te(Ie);var w=require("obsidian");var x=require("obsidian"),ee={baseFolder:"legal-digest",digestFolder:"legal-digest/Digests",conceptFolder:"legal-digest/Concepts",conceptSubfolders:!0,createStubs:!0,llmProvider:"openai",llmApiUrl:"https://api.openai.com/v1/chat/completions",llmApiKey:"",llmModel:"gpt-4o-mini"},M=class extends x.PluginSettingTab{constructor(e,n){super(e,n);this.plugin=n}display(){let{containerEl:e}=this;e.empty(),e.createEl("h2",{text:"Lawyer's Digest settings"}),new x.Setting(e).setName("Base folder").setDesc("All plugin output lives here (e.g. legal-digest \u2192 legal-digest/Digests, legal-digest/Concepts)").addText(s=&gt;s.setPlaceholder("legal-digest").setValue(this.plugin.settings.baseFolder||"legal-digest").onChange(async i=&gt;{let r=(i||"legal-digest").trim();this.plugin.settings.baseFolder=r,this.plugin.settings.digestFolder=r+"/Digests",this.plugin.settings.conceptFolder=r+"/Concepts",await this.plugin.saveSettings()})),new x.Setting(e).setName("Digest folder").setDesc("Where article digests are saved (under base folder)").addText(s=&gt;s.setPlaceholder("legal-digest/Digests").setValue(this.plugin.settings.digestFolder).onChange(async i=&gt;{this.plugin.settings.digestFolder=(i||"").trim()||this.plugin.settings.baseFolder+"/Digests",await this.plugin.saveSettings()})),new x.Setting(e).setName("Concept folder").setDesc("Where concept notes are saved (under base folder)").addText(s=&gt;s.setPlaceholder("legal-digest/Concepts").setValue(this.plugin.settings.conceptFolder).onChange(async i=&gt;{this.plugin.settings.conceptFolder=(i||"").trim()||this.plugin.settings.baseFolder+"/Concepts",await this.plugin.saveSettings()})),new x.Setting(e).setName("Use concept subfolders").setDesc("Create Acts/, Parties/, Themes/ etc. under Concept folder").addToggle(s=&gt;s.setValue(this.plugin.settings.conceptSubfolders).onChange(async i=&gt;{this.plugin.settings.conceptSubfolders=i,await this.plugin.saveSettings()})),new x.Setting(e).setName("Create concept stubs").setDesc("When a concept does not exist, create a stub note").addToggle(s=&gt;s.setValue(this.plugin.settings.createStubs).onChange(async i=&gt;{this.plugin.settings.createStubs=i,await this.plugin.saveSettings()})),e.createEl("h3",{text:"LLM (extraction)"});let n=e.createEl("p",{cls:"lawyers-digest-info",text:"API keys are stored securely in Obsidian settings. Never share your keys."});n.style.color="var(--text-muted)",n.style.fontSize="0.9em",n.style.marginBottom="1em",new x.Setting(e).setName("Provider").setDesc("OpenAI (or compatible) or Google Gemini (free tier at aistudio.google.com)").addDropdown(s=&gt;s.addOption("openai","OpenAI / compatible").addOption("gemini","Google Gemini").setValue(this.plugin.settings.llmProvider||"openai").onChange(async i=&gt;{this.plugin.settings.llmProvider=i,await this.plugin.saveSettings()})),new x.Setting(e).setName("API URL").setDesc("Leave blank to use default (OpenAI or Gemini). Custom proxy URL if needed.").addText(s=&gt;s.setPlaceholder("default").setValue(this.plugin.settings.llmApiUrl).onChange(async i=&gt;{this.plugin.settings.llmApiUrl=(i!=null?i:"").trim(),await this.plugin.saveSettings()})),new x.Setting(e).setName("API key").setDesc("Bearer token for LLM API").addText(s=&gt;s.setPlaceholder("sk-...").setValue(this.plugin.settings.llmApiKey).onChange(async i=&gt;{this.plugin.settings.llmApiKey=i!=null?i:"",await this.plugin.saveSettings()})),new x.Setting(e).setName("Model").setDesc("OpenAI: gpt-4o-mini, etc. Gemini: gemini-2.0-flash, gemini-1.5-flash (free tier)").addText(s=&gt;s.setPlaceholder("e.g. gpt-4o-mini or gemini-2.0-flash").setValue(this.plugin.settings.llmModel).onChange(async i=&gt;{this.plugin.settings.llmModel=(i!=null?i:"").trim()||(this.plugin.settings.llmProvider==="gemini"?"gemini-2.0-flash":"gpt-4o-mini"),await this.plugin.saveSettings()}))}};var E=require("obsidian");G();var I=class extends E.Modal{constructor(e,n){super(e);this.plugin=n}onOpen(){let{contentEl:e}=this;e.empty(),e.createEl("h2",{text:"Process article"}),e.createEl("p",{cls:"lawyers-digest-modal-desc"}).setText("Paste article URL or full text below. The plugin will extract concepts and create a structured digest.");let s=e.createDiv({cls:"lawyers-digest-modal-mode"});s.createEl("label").setText("Input: ");let r=s.createEl("select");r.addClass("lawyers-digest-select"),r.createEl("option",{value:"paste"}).setText("Paste text"),r.createEl("option",{value:"url"}).setText("URL (fetch then extract)");let a=e.createDiv({cls:"lawyers-digest-modal-input"}),c=e.createEl("textarea",{cls:"lawyers-digest-textarea"});c.placeholder="Paste article text or article URL\u2026",c.setAttr("rows","12"),a.appendChild(c);let m=e.createDiv({cls:"lawyers-digest-modal-buttons"}),u=m.createEl("button",{cls:"mod-cta"});u.setText("Process");let v=m.createEl("button");v.setText("Cancel");let h=!1;r.onchange=()=&gt;{h=r.value==="url",c.placeholder=h?"https://example.com/article/\u2026":"Paste article text\u2026"},u.onclick=async()=&gt;{var f;let g=c.value.trim();if(!g){new E.Notice("Enter URL or paste article text.");return}if(!((f=this.plugin.settings.llmApiKey)!=null&amp;&amp;f.trim())){new E.Notice("Set LLM API key in Settings \u2192 Lawyer's Digest.");return}u.setAttribute("disabled","true"),u.setText("Processing\u2026");try{let y=g,d;if(h||g.startsWith("http://")||g.startsWith("https://")){d=g.startsWith("http")?g:void 0;let P=d||g;if(!this.isValidUrl(P)){new E.Notice("Invalid URL format. Please use http:// or https:// URLs."),u.removeAttribute("disabled"),u.setText("Process");return}let T=await this.fetchArticleText(P);if(!T){new E.Notice("Could not fetch URL. The site may block automated requests. Paste the article text instead."),u.removeAttribute("disabled"),u.setText("Process");return}y=T,d||(d=g)}let b={provider:this.plugin.settings.llmProvider||"openai",apiUrl:this.plugin.settings.llmApiUrl,apiKey:this.plugin.settings.llmApiKey,model:this.plugin.settings.llmModel},A=await B(y,b);if(!A){new E.Notice("Pipeline failed: could not extract from article."),u.removeAttribute("disabled"),u.setText("Process");return}let S=await this.plugin.processPipelineResult(A,d);S?(new E.Notice(`Digest saved: ${S}`),this.close()):new E.Notice("Failed to save digest.")}catch(y){let d=y instanceof Error?y.message:String(y),b=d.length&gt;100?d.slice(0,100)+"...":d;new E.Notice(`Error: ${b}`),console.error("Lawyer's Digest plugin error:",y)}u.removeAttribute("disabled"),u.setText("Process")},v.onclick=()=&gt;this.close()}isValidUrl(e){try{let n=new URL(e);return n.protocol==="http:"||n.protocol==="https:"}catch(n){return!1}}async fetchArticleText(e){if(!this.isValidUrl(e))return null;try{let n=await fetch(e,{headers:{"User-Agent":"Obsidian-Lawyers-Digest/1.0"},signal:AbortSignal.timeout(3e4)});if(!n.ok)return null;let s=await n.text();return this.stripHtmlToText(s)}catch(n){return null}}stripHtmlToText(e){var l,p;let n=e.slice(0,1e6),s=document.createElement("div");s.innerHTML=n;let i=s.querySelector("article")||s.querySelector("[data-trackable='article-body']")||s.querySelector(".article__content")||s,r=(p=(l=i==null?void 0:i.textContent)!=null?l:s.textContent)!=null?p:"";return r=r.replace(/\s+/g," ").trim(),r.slice(0,5e4)}onClose(){let{contentEl:e}=this;e.empty()}};N();function ge(o){let t={};for(let[e,n]of Object.entries(R))t[n]=e;for(let[e,n]of Object.entries(t)){let s=`${e} - `;if(o.startsWith(s)){let i=o.slice(s.length).trim();return i?{type:n,name:i}:null}}return null}function D(o){return o.toLowerCase().replace(/\s+/g," ").replace(/['']/g,"").trim()}function Ce(o,t){var i;let e=new Map,n=o.vault.getMarkdownFiles(),s=t?t.replace(/\/$/,"")+"/":"";for(let r of n){let l=r.basename,p=r.path;if(t&amp;&amp;!p.startsWith(s))continue;let a=D(l);a&amp;&amp;!e.has(a)&amp;&amp;e.set(a,l);let c=o.metadataCache.getFileCache(r),m=(i=c==null?void 0:c.frontmatter)==null?void 0:i.aliases;if(m){let u=Array.isArray(m)?m:[m];for(let v of u){if(typeof v!="string")continue;let h=D(v);h&amp;&amp;!e.has(h)&amp;&amp;e.set(h,l)}}}return e}function V(o,t,e,n){let s=$(t,e),i=Ce(o,n),r=D(s),l=i.get(r);if(l)return{noteName:l,type:t,createdStub:!1};let p=D(e),a=i.get(p);return a?{noteName:a,type:t,createdStub:!1}:{noteName:s,type:t,createdStub:!0}}function J(o,t,e){let n=R[o],s=[];return s.push("---"),s.push(`type: ${o}`),s.push(`aliases: [${t}]`),s.push("---"),s.push(""),s.push(`# ${n}: ${t}`),s.push(""),s.push("## Summary"),s.push(""),e&amp;&amp;e.trim()?s.push(e.trim()):s.push("*Add a short description and link to articles that mention this concept.*"),s.push(""),s.join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}function H(o,t,e,n){let s=e?e.replace(/\/$/,"")+"/":"";return n?`${s}${t==="act"?"Acts":t==="party"?"Parties":t==="theme"?"Themes":t==="sector"?"Sectors":t==="jurisdiction"?"Jurisdictions":t==="authority"?"Authorities":"Issues"}/${o}.md`:`${s}${o}.md`}N();function q(o,t){let e=t?t.replace(/-/g,"").slice(0,8):"",n=o.trim().replace(/['"]/g,"").replace(/[^\w\s-]/g,"").replace(/\s+/g," ").trim().slice(0,60),s=n?n.replace(/\s/g,"-"):"untitled";return e?`${e}-${s}`:s}function Me(o,t){return`[[${$(o,t)}]]`}var X={sector:"sectors",jurisdiction:"jurisdictions",act:"acts",authority:"authorities",party:"parties",theme:"themes",issue:"issues"};function Fe(o){let t=[];for(let e of F){let n=o[X[e]];if(!Array.isArray(n))continue;let s=new Set;for(let i of n)!i||s.has(i)||(s.add(i),t.push(Me(e,i)))}return t}function de(o,t){var i;let e=[],n=(i=o.publishedDate)!=null?i:new Date().toISOString().slice(0,10);e.push("---"),e.push("type: article"),e.push(`date: ${n}`),t&amp;&amp;e.push(`url: ${t}`),e.push("---"),e.push(""),e.push(`# ${o.headline}`),e.push(""),e.push("## Summary"),e.push(""),e.push(o.summary),e.push(""),e.push("## Key points"),e.push("");for(let r of o.keyPoints)e.push(`- ${r}`);e.push(""),e.push("## Concepts"),e.push("");let s=Fe(o.entities);return s.length?e.push(s.join(" ")):e.push("*No concepts extracted.*"),e.push(""),e.join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}function me(o,t,e,n,s){let i=t!=null?t:new Date().toISOString().slice(0,10),r=[];return r.push("---"),r.push("type: article"),r.push(`date: ${i}`),s&amp;&amp;r.push(`url: ${s}`),r.push("---"),r.push(""),r.push(`# ${o}`),r.push(""),r.push(e),r.push(""),n.length&gt;0&amp;&amp;(r.push("## Concepts"),r.push(""),r.push(n.map(l=&gt;`[[${l}]]`).join(" ")),r.push("")),r.join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}N();W();O();var ye="## Lawyer says",he="## Trainee task",fe="&gt; [!todo]- Your answer",z="## Lawyer reviews";function $e(){return["","### Your answer","",fe,"&gt;","&gt; ",""].join(`</span>
+<span class="cstat-no" title="statement not covered" >`)}async function we(o,t){let e=`Article content:</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" >${o.slice(0,12e3)}</span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Provide the lawyer's perspective (up to 3 points, with sub-bullets where relevant) and one trainee task. Use the exact headings specified.`,s=(await L(ne,e,t)).trim();return`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`+ye+`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`+s+$e()}function Oe(o){let t=o.split(fe)[1]||o.split("### Your answer")[1];return t?t.split(z)[0].replace(/^&gt;\s*$/gm,"").replace(/^&gt;\s?/gm,"").trim().slice(0,4e3):""}async function ve(o,t){var v,h,g,f,y,d,b,A,S,P;let e=Oe(o);if(!e||e.length&lt;10)return`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`+z+`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >*No answer found. Add your response under the "Your answer" callout and run this command again.*</span>
+<span class="cstat-no" title="statement not covered" >`;let n=o.includes(he)&amp;&amp;(g=(h=(v=o.split(he)[1])==null?void 0:v.split("### Your answer")[0])==null?void 0:h.trim().slice(0,800))!=null?g:"",s=(y=(f=o.split(ye)[0])==null?void 0:f.trim().slice(0,4e3))!=null?y:"",i=`Task:</span>
+<span class="cstat-no" title="statement not covered" >${n}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Article context (excerpt):</span>
+<span class="cstat-no" title="statement not covered" >${s}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Output key points to cover and an optional short model answer. Do not look at any trainee answer.`,l=`Key points to cover (and optional model answer) \u2014 use these to assess the trainee's answer. Do not repeat these in your output.</span>
+<span class="cstat-no" title="statement not covered" >${await L(re,i,t)}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" >Trainee's answer:</span>
+<span class="cstat-no" title="statement not covered" >---</span>
+<span class="cstat-no" title="statement not covered" >${e}</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >Output Key issues (bullets) and Revised version (with ~~removed~~ and **added**).`,p=await L(oe,l,t),a=p.includes("## Key issues")&amp;&amp;(A=(b=(d=p.split("## Key issues")[1])==null?void 0:d.split("## Revised version")[0])==null?void 0:b.trim())!=null?A:"",c=p.includes("## Revised version")?(P=(S=p.split("## Revised version")[1])==null?void 0:S.trim())!=null?P:"":p,m=a?`&gt; [!danger]- Key issues</span>
+<span class="cstat-no" title="statement not covered" >&gt;</span>
+<span class="cstat-no" title="statement not covered" >`+a.split(`</span>
+<span class="cstat-no" title="statement not covered" >`).map(T=&gt;"&gt; "+T).join(`</span>
+<span class="cstat-no" title="statement not covered" >`)+`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`:"",u=c?`&gt; [!tip]- Revised version</span>
+<span class="cstat-no" title="statement not covered" >&gt;</span>
+<span class="cstat-no" title="statement not covered" >`+c.split(`</span>
+<span class="cstat-no" title="statement not covered" >`).map(T=&gt;"&gt; "+T).join(`</span>
+<span class="cstat-no" title="statement not covered" >`)+`</span>
+<span class="cstat-no" title="statement not covered" >`:"";return`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`+z+`</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >`+m+u+`</span>
+<span class="cstat-no" title="statement not covered" >`}var U=class extends w.Plugin{async onload(){await this.loadSettings(),this.addSettingTab(new M(this.app,this)),this.addCommand({id:"process-article",name:"Process article",callback:()=&gt;{new I(this.app,this).open()}}),this.addCommand({id:"refresh-links-for-note",name:"Refresh links for this note",checkCallback:t=&gt;{let e=this.app.workspace.getActiveFile();return!e||!e.path.endsWith(".md")?!1:(t||this.refreshLinksForNote(e.path),!0)}}),this.addCommand({id:"lawyersays",name:"Lawyer says (perspectives + trainee task)",checkCallback:t=&gt;{let e=this.app.workspace.getActiveFile();return!e||!e.path.endsWith(".md")?!1:(t||this.runLawyerSays(e),!0)}}),this.addCommand({id:"lawyerreviews",name:"Lawyer reviews (feedback on your answer)",checkCallback:t=&gt;{let e=this.app.workspace.getActiveFile();return!e||!e.path.endsWith(".md")?!1:(t||this.runLawyerReviews(e),!0)}})}onunload(){}async loadSettings(){let t=await this.loadData();this.settings={...ee,...t},!this.settings.baseFolder&amp;&amp;this.settings.digestFolder==="Digests"&amp;&amp;(this.settings.baseFolder="legal-digest",this.settings.digestFolder="legal-digest/Digests",this.settings.conceptFolder="legal-digest/Concepts")}async saveSettings(){await this.saveData(this.settings)}async processPipelineResult(t,e,n){var v,h,g;let s=((v=this.settings.digestFolder)==null?void 0:v.trim())||"Digests",i=((h=this.settings.conceptFolder)==null?void 0:h.trim())||"Concepts",r=this.settings.conceptSubfolders,l=this.settings.createStubs,a=`Article - ${q(t.extraction.headline,t.extraction.publishedDate)}.md`,c=n!=null?n:s?`${s}/${a}`:a;for(let f of t.conceptNoteNames){if(!f||f.trim().length===0)continue;let y=ge(f);if(!y)continue;let{type:d,name:b}=y,A=V(this.app,d,b,i);if(A.createdStub&amp;&amp;l){let S=H(A.noteName,d,i,r),P=(g=t.conceptDescriptions)==null?void 0:g[f],T=J(d,b,P),Z=S.replace(/\/[^/]+$/,"");this.app.vault.getAbstractFileByPath(Z)===null&amp;&amp;await this.app.vault.createFolder(Z),this.app.vault.getAbstractFileByPath(S)||await this.app.vault.create(S,T)}}let m=me(t.extraction.headline,t.extraction.publishedDate,t.narrative,t.conceptNoteNames,e);this.app.vault.getAbstractFileByPath(s)===null&amp;&amp;s&amp;&amp;await this.app.vault.createFolder(s);let u=this.app.vault.getAbstractFileByPath(c);return u instanceof w.TFile?await this.app.vault.modify(u,m):await this.app.vault.create(c,m),c}async processExtraction(t,e,n){var h,g;let s=((h=this.settings.digestFolder)==null?void 0:h.trim())||"Digests",i=((g=this.settings.conceptFolder)==null?void 0:g.trim())||"Concepts",r=this.settings.conceptSubfolders,l=this.settings.createStubs,a=`Article - ${q(t.headline,t.publishedDate)}.md`,c=n!=null?n:s?`${s}/${a}`:a,m=t.entities;for(let f of F){let y=m[X[f]];if(!Array.isArray(y))continue;let d=new Set;for(let b of y){if(!b||!String(b).trim()||d.has(b))continue;d.add(b);let A=V(this.app,f,b,i);if(A.createdStub&amp;&amp;l){let S=H(A.noteName,f,i,r),P=J(f,b),T=S.replace(/\/[^/]+$/,"");this.app.vault.getAbstractFileByPath(T)===null&amp;&amp;await this.app.vault.createFolder(T),this.app.vault.getAbstractFileByPath(S)||await this.app.vault.create(S,P)}}}let u=de(t,e);this.app.vault.getAbstractFileByPath(s)===null&amp;&amp;s&amp;&amp;await this.app.vault.createFolder(s);let v=this.app.vault.getAbstractFileByPath(c);return v instanceof w.TFile?await this.app.vault.modify(v,u):await this.app.vault.create(c,u),c}async refreshLinksForNote(t){var p;let e=this.app.vault.getAbstractFileByPath(t);if(!e||!(e instanceof w.TFile))return;let n=await this.app.vault.read(e),s=this.getArticleTextFromDigest(n);if(!s.trim()){new w.Notice("No summary/key points found to re-extract. Paste full article and use Process article.");return}if(!((p=this.settings.llmApiKey)!=null&amp;&amp;p.trim())){new w.Notice("Set LLM API key in Settings \u2192 Lawyer's Digest.");return}let i=this.getUrlFromFrontmatter(n),{runDigestPipeline:r}=await Promise.resolve().then(()=&gt;(G(),ue)),l={provider:this.settings.llmProvider||"openai",apiUrl:this.settings.llmApiUrl,apiKey:this.settings.llmApiKey,model:this.settings.llmModel};try{let a=await r(s,l);if(!a){new w.Notice("Re-run failed: could not complete pipeline.");return}await this.processPipelineResult(a,i,e.path),new w.Notice("Refreshed digest and concept links.")}catch(a){let c=a instanceof Error?a.message:String(a);new w.Notice(`Refresh failed: ${c}`)}}getUrlFromFrontmatter(t){let e=t.match(/^---\s*[\s\S]*?url:\s*(\S+)\s*[\s\S]*?---/m);return e?e[1].trim():void 0}getArticleTextFromDigest(t){let e=t.replace(/^---[\s\S]*?---\s*/m,"").trim(),n=e.split(/^##\s+Concepts\s*$/m)[0];if(!n)return e;let s=n.replace(/^#\s+.*$/m,"").trim();return s.includes("## Summary")?s.replace(/^##\s+Summary\s*$/m,"").replace(/^##\s+Key points\s*$/m,"").trim():s}async runLawyerSays(t){var n;if(!((n=this.settings.llmApiKey)!=null&amp;&amp;n.trim())){new w.Notice("Set LLM API key in Settings \u2192 Lawyer's Digest.");return}let e=await this.app.vault.read(t);if(e.includes("## Lawyer says")){new w.Notice("This note already has a Lawyer says section. Remove it or use a new note.");return}try{new w.Notice("Lawyer says\u2026");let s={provider:this.settings.llmProvider||"openai",apiUrl:this.settings.llmApiUrl,apiKey:this.settings.llmApiKey,model:this.settings.llmModel},i=await we(e,s);await this.app.vault.modify(t,e+i),new w.Notice('Lawyer says added. Complete the trainee task under "Your answer", then run Lawyer reviews.')}catch(s){let i=s instanceof Error?s.message:String(s);new w.Notice(`Lawyer says failed: ${i}`)}}async runLawyerReviews(t){var n;if(!((n=this.settings.llmApiKey)!=null&amp;&amp;n.trim())){new w.Notice("Set LLM API key in Settings \u2192 Lawyer's Digest.");return}let e=await this.app.vault.read(t);try{new w.Notice("Lawyer reviews\u2026");let s={provider:this.settings.llmProvider||"openai",apiUrl:this.settings.llmApiUrl,apiKey:this.settings.llmApiKey,model:this.settings.llmModel},i=await ve(e,s),r="## Lawyer reviews";e.includes(r)?e=e.split(r)[0].trimEnd()+i.trimStart():e=e+i,await this.app.vault.modify(t,e),new w.Notice("Lawyer reviews added.")}catch(s){let i=s instanceof Error?s.message:String(s);new w.Notice(`Lawyer reviews failed: ${i}`)}}};</span>
+&nbsp;</pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2026-02-19T17:11:21.319Z
+            </div>
+        <script src="../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../sorter.js"></script>
+        <script src="../block-navigation.js"></script>
+    </body>
+</html>
+    

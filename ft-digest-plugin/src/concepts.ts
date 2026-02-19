@@ -9,14 +9,15 @@ import { conceptNoteTitle, ENTITY_TYPE_LABELS } from "./ontology";
 
 /** Parse "Type - Name" (e.g. "Act - Companies Act 2006") to type and name for stub creation. */
 export function parseConceptNoteName(fullName: string): { type: EntityType; name: string } | null {
+  const trimmed = fullName.trim();
   const labelToType: Record<string, EntityType> = {};
   for (const [type, label] of Object.entries(ENTITY_TYPE_LABELS)) {
     labelToType[label] = type as EntityType;
   }
   for (const [label, type] of Object.entries(labelToType)) {
     const prefix = `${label} - `;
-    if (fullName.startsWith(prefix)) {
-      const name = fullName.slice(prefix.length).trim();
+    if (trimmed.startsWith(prefix)) {
+      const name = trimmed.slice(prefix.length).trim();
       if (name) return { type, name };
       return null;
     }
