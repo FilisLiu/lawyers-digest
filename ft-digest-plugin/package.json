@@ -1,0 +1,22 @@
+{
+  "name": "ft-digest-plugin",
+  "version": "1.0.0",
+  "description": "Obsidian plugin: FT article digests and concept graph",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": ["obsidian", "plugin", "ft", "digest", "legal"],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "esbuild": "0.25.5",
+    "tslib": "2.4.0",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "obsidian": "latest"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "ft-digest",
+  "name": "FT Digest",
+  "version": "1.0.0",
+  "minAppVersion": "0.15.0",
+  "description": "Process FT articles into structured digests and a concept graph (Acts, parties, themes) for commercial awareness.",
+  "author": "NexusComm",
+  "authorUrl": "",
+  "isDesktopOnly": false
+}
