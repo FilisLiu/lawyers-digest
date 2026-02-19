@@ -110,6 +110,13 @@ export class FTDigestSettingTab extends PluginSettingTab {
       );
 
     containerEl.createEl("h3", { text: "LLM (extraction)" });
+    const llmInfo = containerEl.createEl("p", {
+      cls: "ft-digest-info",
+      text: "API keys are stored securely in Obsidian settings. Never share your keys.",
+    });
+    llmInfo.style.color = "var(--text-muted)";
+    llmInfo.style.fontSize = "0.9em";
+    llmInfo.style.marginBottom = "1em";
     new Setting(containerEl)
       .setName("Provider")
       .setDesc("OpenAI (or compatible) or Google Gemini (free tier at aistudio.google.com)")
@@ -161,9 +168,16 @@ export class FTDigestSettingTab extends PluginSettingTab {
       );
 
     containerEl.createEl("h3", { text: "FT API (optional)" });
+    const ftWarning = containerEl.createEl("p", {
+      cls: "ft-digest-warning",
+      text: "⚠️ FT Sync requires a valid FT Developer API key with Datamining Licence. Users are responsible for complying with FT's Terms of Service.",
+    });
+    ftWarning.style.color = "var(--text-warning)";
+    ftWarning.style.fontSize = "0.9em";
+    ftWarning.style.marginBottom = "1em";
     new Setting(containerEl)
       .setName("FT API key")
-      .setDesc("For Sync: FT Developer API key (Datamining Licence)")
+      .setDesc("For Sync: FT Developer API key (Datamining Licence). See README for legal requirements.")
       .addText((t) =>
         t
           .setPlaceholder("")

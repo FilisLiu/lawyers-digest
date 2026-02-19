@@ -60,9 +60,15 @@ export class ProcessArticleModal extends Modal {
         if (isUrl || raw.startsWith("http://") || raw.startsWith("https://")) {
           sourceUrl = raw.startsWith("http") ? raw : undefined;
           const url = sourceUrl || raw;
+          if (!this.isValidUrl(url)) {
+            new Notice("Invalid URL format. Please use http:// or https:// URLs.");
+            submit.removeAttribute("disabled");
+            submit.setText("Process");
+            return;
+          }
           const fetched = await this.fetchArticleText(url);
           if (!fetched) {
-            new Notice("Could not fetch URL. Paste the article text instead.");
+            new Notice("Could not fetch URL. The site may block automated requests. Paste the article text instead.");
             submit.removeAttribute("disabled");
             submit.setText("Process");
             return;
@@ -92,7 +98,9 @@ export class ProcessArticleModal extends Modal {
         }
       } catch (e) {
         const msg = e instanceof Error ? e.message : String(e);
-        new Notice(`Error: ${msg}`);
+        const errorMsg = msg.length > 100 ? msg.slice(0, 100) + "..." : msg;
+        new Notice(`Error: ${errorMsg}`);
+        console.error("FT Digest plugin error:", e);
       }
       submit.removeAttribute("disabled");
       submit.setText("Process");
@@ -101,10 +109,28 @@ export class ProcessArticleModal extends Modal {
     cancel.onclick = () => this.close();
   }
 
+  /** Validate URL before fetching */
+  private isValidUrl(url: string): boolean {
+    try {
+      const parsed = new URL(url);
+      // Only allow http/https protocols
+      return parsed.protocol === "http:" || parsed.protocol === "https:";
+    } catch {
+      return false;
+    }
+  }
+
   /** Fetch article text from URL; strip HTML to plain text for LLM */
   private async fetchArticleText(url: string): Promise<string | null> {
+    if (!this.isValidUrl(url)) {
+      return null;
+    }
     try {
-      const res = await fetch(url, { headers: { "User-Agent": "Obsidian-FT-Digest/1.0" } });
+      const res = await fetch(url, {
+        headers: { "User-Agent": "Obsidian-FT-Digest/1.0" },
+        // Add timeout (browser fetch doesn't support timeout directly, but this helps)
+        signal: AbortSignal.timeout(30000), // 30 second timeout
+      });
       if (!res.ok) return null;
       const html = await res.text();
       return this.stripHtmlToText(html);
@@ -113,11 +139,20 @@ export class ProcessArticleModal extends Modal {
     }
   }
 
+  /** Safely strip HTML to plain text (improved security) */
   private stripHtmlToText(html: string): string {
+    // Limit HTML size to prevent DoS
+    const limitedHtml = html.slice(0, 1000000); // 1MB max
     const div = document.createElement("div");
-    div.innerHTML = html;
-    const article = div.querySelector("article") || div.querySelector("[data-trackable='article-body']") || div.querySelector(".article__content") || div;
-    let text = article?.innerText ?? div.innerText ?? "";
+    // Use textContent instead of innerHTML when possible for better security
+    // But we need innerHTML to parse structure, so we'll extract text immediately
+    div.innerHTML = limitedHtml;
+    const article =
+      div.querySelector("article") ||
+      div.querySelector("[data-trackable='article-body']") ||
+      div.querySelector(".article__content") ||
+      div;
+    let text = article?.textContent ?? div.textContent ?? "";
     text = text.replace(/\s+/g, " ").trim();
     return text.slice(0, 50000);
   }

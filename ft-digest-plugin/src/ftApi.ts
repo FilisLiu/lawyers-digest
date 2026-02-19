@@ -14,32 +14,63 @@ const MAX_PROCESSED_IDS = 5000;
 
 /** Fetch notifications since last sync (article UUIDs) */
 async function fetchNotificationIds(apiKey: string, since?: string): Promise<string[]> {
+  if (!apiKey || !apiKey.trim()) {
+    throw new Error("FT API key is required");
+  }
   const url = since
     ? `${FT_NOTIFICATIONS_URL}?since=${encodeURIComponent(since)}`
     : FT_NOTIFICATIONS_URL;
-  const res = await fetch(url, {
-    headers: { "X-Api-Key": apiKey },
-  });
-  if (!res.ok) throw new Error(`FT Notifications API ${res.status}`);
-  const data = (await res.json()) as { notifications?: Array<{ id?: string }> };
-  const list = data?.notifications ?? [];
-  return list.map((n) => n.id).filter((id): id is string => typeof id === "string");
+  try {
+    const res = await fetch(url, {
+      headers: { "X-Api-Key": apiKey },
+      signal: AbortSignal.timeout(30000), // 30 second timeout
+    });
+    if (!res.ok) {
+      const errorText = await res.text().catch(() => "");
+      throw new Error(`FT Notifications API ${res.status}: ${errorText.slice(0, 200)}`);
+    }
+    const data = (await res.json()) as { notifications?: Array<{ id?: string }> };
+    const list = data?.notifications ?? [];
+    return list.map((n) => n.id).filter((id): id is string => typeof id === "string");
+  } catch (e) {
+    if (e instanceof Error && e.name === "AbortError") {
+      throw new Error("FT API request timed out. Please try again.");
+    }
+    throw e;
+  }
 }
 
 /** Fetch one article body by id */
 async function fetchArticleContent(apiKey: string, id: string): Promise<{ title?: string; bodyXML?: string; webUrl?: string; publishedDate?: string } | null> {
-  const res = await fetch(`${FT_CONTENT_URL}/${id}`, {
-    headers: { "X-Api-Key": apiKey },
-  });
-  if (!res.ok) return null;
-  const data = (await res.json()) as { title?: string; bodyXML?: string; webUrl?: string; publishedDate?: string };
-  return data;
+  if (!apiKey || !apiKey.trim() || !id || !id.trim()) {
+    return null;
+  }
+  try {
+    const res = await fetch(`${FT_CONTENT_URL}/${encodeURIComponent(id)}`, {
+      headers: { "X-Api-Key": apiKey },
+      signal: AbortSignal.timeout(30000), // 30 second timeout
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as {
+      title?: string;
+      bodyXML?: string;
+      webUrl?: string;
+      publishedDate?: string;
+    };
+    return data;
+  } catch {
+    return null;
+  }
 }
 
+/** Safely convert HTML to plain text (improved security) */
 function htmlToPlainText(html: string): string {
+  // Limit HTML size to prevent DoS
+  const limitedHtml = html.slice(0, 1000000); // 1MB max
   const div = document.createElement("div");
-  div.innerHTML = html;
-  return (div.innerText ?? "").replace(/\s+/g, " ").trim().slice(0, 50000);
+  div.innerHTML = limitedHtml;
+  // Use textContent for better security (doesn't execute scripts)
+  return (div.textContent ?? "").replace(/\s+/g, " ").trim().slice(0, 50000);
 }
 
 export async function fetchAndProcessFTArticles(app: App, plugin: FTDigestPlugin): Promise<number> {

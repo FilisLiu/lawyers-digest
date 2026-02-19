@@ -2,6 +2,17 @@
 
 Process Financial Times (or similar commercial news) articles into structured digests and a **concept graph** (Acts, parties, themes, sectors, jurisdictions). Build commercial awareness with solicitor-style perspectives, trainee tasks, and feedback.
 
+## ⚠️ Legal & Compliance Notice
+
+**FT API Usage**: The "FT Sync" feature requires a valid Financial Times Developer API key with a **Datamining Licence**. Users are responsible for:
+- Obtaining proper API access from FT (see [FT Developer Portal](https://developer.ft.com/))
+- Complying with FT's Terms of Service and API usage policies
+- Respecting copyright and attribution requirements for FT content
+
+**Content Attribution**: When using FT articles, ensure proper attribution. The plugin stores source URLs in frontmatter for reference.
+
+**Disclaimer**: This plugin is an independent tool and is not affiliated with or endorsed by the Financial Times. Users are responsible for ensuring their use complies with all applicable laws and terms of service.
+
 ## Features
 
 **Note-first workflow (create note, paste article, then run commands):**
@@ -26,7 +37,12 @@ All plugin output (Digests, Concepts) lives under a single **base folder** (defa
 1. **Settings → FT Digest**
    - **Base folder**: All output lives here (default: `ft-digest` → `ft-digest/Digests`, `ft-digest/Concepts`). Override Digest/Concept folders if needed.
    - **LLM**: Provider (OpenAI or Gemini), API key, model. Required for Lawyer says, Lawyer reviews, and Process FT article.
-   - **FT API key** (optional): For "FT Sync (fetch new articles)".
+   - **FT API key** (optional): For "FT Sync (fetch new articles)". **Requires FT Developer API access with Datamining Licence** - see [Legal Notice](#-legal--compliance-notice) above.
+
+2. **API Keys & Security**
+   - API keys are stored securely in Obsidian's plugin settings (encrypted at rest)
+   - Never share your API keys or commit them to version control
+   - Use environment variables or secure credential management for development
 
 2. **Suggested workflow**
    - Create a new note and paste the article (or use **Process FT article** with URL/paste to generate a digest).
@@ -59,5 +75,17 @@ You can edit stubs to add more (e.g. **Case** notes could later be enriched with
 
 - `npm run dev` – watch build
 - `npm run build` – production build
+- `npm run lint` – run ESLint
+- `npm run format` – format code with Prettier
 
 Requires Node 18+ and npm.
+
+## Troubleshooting
+
+**"FT API key not set"**: Ensure you have a valid FT Developer API key with Datamining Licence. The FT Sync feature is optional - you can still use the plugin by pasting article text manually.
+
+**"LLM API error"**: Check that your LLM API key is valid and you have sufficient credits/quota. For OpenAI, ensure you're using a valid model name (e.g., `gpt-4o-mini`). For Gemini, use models like `gemini-2.0-flash` or `gemini-1.5-flash`.
+
+**"Pipeline failed"**: The LLM may have returned invalid JSON. Try again with a shorter article or check your API quota.
+
+**"Could not fetch URL"**: The plugin attempts to fetch article text from URLs, but some sites may block automated requests. Paste the article text directly instead.

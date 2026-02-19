@@ -5,8 +5,6 @@
 import {
   buildExtractionUserPrompt,
   EXTRACTION_SYSTEM_PROMPT,
-  INSIGHT_SYSTEM_PROMPT,
-  NARRATIVE_SYSTEM_PROMPT,
   parseExtractionResponse,
 } from "./prompt";
 import type { ArticleExtraction } from "./ontology";
@@ -70,8 +68,8 @@ async function chatForTextGemini(
   const model = settings.model || "gemini-2.0-flash";
   const apiKey = settings.apiKey || "";
   const useCustomUrl = settings.apiUrl?.trim() && settings.apiUrl.includes("generativelanguage");
-  const url = useCustomUrl
-    ? settings.apiUrl!
+  const url = useCustomUrl && settings.apiUrl
+    ? settings.apiUrl
     : `${GEMINI_BASE_URL}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (useCustomUrl && apiKey) headers["x-goog-api-key"] = apiKey;
@@ -144,8 +142,8 @@ async function extractWithGemini(articleText: string, settings: LLMSettings): Pr
   const model = settings.model || "gemini-2.0-flash";
   const apiKey = settings.apiKey || "";
   const useCustomUrl = settings.apiUrl?.trim() && settings.apiUrl.includes("generativelanguage");
-  const url = useCustomUrl
-    ? settings.apiUrl!
+  const url = useCustomUrl && settings.apiUrl
+    ? settings.apiUrl
     : `${GEMINI_BASE_URL}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
   const headers: Record<string, string> = { "Content-Type": "application/json" };
   if (useCustomUrl && apiKey) headers["x-goog-api-key"] = apiKey;

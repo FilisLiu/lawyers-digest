@@ -1,11 +1,10 @@
-import { App, Notice, Plugin, TFile } from "obsidian";
+import { Notice, Plugin, TFile } from "obsidian";
 import { DEFAULT_SETTINGS, type FTDigestSettings, FTDigestSettingTab } from "./settings";
 import { ProcessArticleModal } from "./modal";
 import { resolveConcept, conceptNotePath, stubNoteContent, parseConceptNoteName } from "./concepts";
 import { buildDigestMarkdown, buildNarrativeDigestMarkdown, slugify } from "./digest";
 import type { ArticleExtraction } from "./ontology";
 import { ENTITY_TYPES } from "./ontology";
-import type { EntityType } from "./ontology";
 import { ENTITY_KEYS } from "./digest";
 import type { PipelineResult } from "./pipeline";
 import { runLawyerSays, runLawyerReviews } from "./lawyerCommands";
